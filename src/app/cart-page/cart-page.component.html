@@ -1,0 +1,19 @@
+<div>
+  <ul>
+    <li *ngFor="let cartItem of cart.items" class="d-flex justify-content-between">
+      <span>{{cartItem.item.name}} X {{cartItem.quantity}}</span>
+      <span class="border" style="cursor: pointer" (click)="addQuantity(cartItem.item)">+</span>
+      <span class="border" style="cursor: pointer" (click)="removeQuantity(cartItem.item)">-</span>
+      <span>{{cartItem.getTotalPrice()|currency:"BGN":"symbol"}} |
+      {{cartItem.getTotalPrice()|EurCurrencyConvertor|currency:"EUR":"symbol"}}
+      </span>
+      <span class="border" style="cursor: pointer">X</span>
+    </li>
+  </ul>
+  <ul class="list-unstyled text-end">
+      <li>Total :
+        {{cart.totalAmount()|currency:"BGN":"symbol"}} |
+        {{cart.totalAmount()|EurCurrencyConvertor|currency:"EUR":"symbol"}}
+      </li>
+  </ul>
+</div>

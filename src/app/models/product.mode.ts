@@ -1,12 +1,7 @@
 export class Product{
-  barcode:string
-  name: string
-  price:number
-
-
-  constructor(barcode: string, name: string, price: number) {
-    this.barcode = barcode;
-    this.name = name;
-    this.price = price;
+  constructor( public id:number,
+               public barcode: string,
+               public name: string,
+               public price: number) {
   }
 }

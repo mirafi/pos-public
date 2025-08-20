@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Orders} from "../services/orders.service";
+import {OrderService} from "../services/orders.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class StartOrderPageComponent implements OnInit {
 
-  constructor(private orders:Orders,private router: Router) { }
+  constructor(private orders:OrderService, private router: Router) { }
 
   ngOnInit(): void {
   }

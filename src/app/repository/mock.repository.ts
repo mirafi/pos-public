@@ -11,15 +11,15 @@ export class MockData{
     MockData.dataItem.set(MockData.dataCategory[0].id,[])
     MockData.dataItem.set(MockData.dataCategory[1].id,[])
 
-    MockData.dataItem.get(MockData.dataCategory[0].id)?.push(new Product("100001","Cola",1))
-    MockData.dataItem.get(MockData.dataCategory[0].id)?.push(new Product("100002","Cola Zero",1))
-    MockData.dataItem.get(MockData.dataCategory[0].id)?.push(new Product("100004","Ieran",1))
-    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product("200001","Beef Burger",5))
-    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product("200002","Chicken Burger",3))
-    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product("200003","Beef Shawarma",5))
-    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product("200004","Chicken Shawarma",3))
-    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product("200005","Chicken soup",2))
-    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product("200006","Beef soup",2))
+    MockData.dataItem.get(MockData.dataCategory[0].id)?.push(new Product(1,"100001","Cola",1))
+    MockData.dataItem.get(MockData.dataCategory[0].id)?.push(new Product(2,"100002","Cola Zero",1))
+    MockData.dataItem.get(MockData.dataCategory[0].id)?.push(new Product(3,"100004","Ieran",1))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(4,"200001","Beef Burger",5))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(5,"200002","Chicken Burger",3))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(6,"200003","Beef Shawarma",5))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(7,"200004","Chicken Shawarma",3))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(8,"200005","Chicken soup",2))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(9,"200006","Beef soup",2))
 
 
 

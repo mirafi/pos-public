@@ -2,6 +2,12 @@
   <div class="d-flex gap-2">
     <div class="p-2">{{currentOrderDisplayText}}</div>
     <div class="p-2">Pending Order ({{pendingOrderCount}})</div>
+    <div class="p-2">Total Quantity {{totalQuantity}}</div>
+    <div class="p-2">Total Amount :
+      {{totalAmount|currency:"BGN":"symbol"}} |
+      {{totalAmount|EurCurrencyConvertor|currency:"EUR":"symbol"}}
+
+    </div>
   </div>
 </div>
 <div class="w-100  align-items-center">
@@ -15,6 +21,6 @@
 
 
   <div class="d-flex justify-content-end">
-    <button >Cart</button>
+    <button >Go to Cart</button>
   </div>
 </div>

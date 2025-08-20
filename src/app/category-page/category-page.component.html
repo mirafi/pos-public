@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Category</title>
+</head>
+<body class="bg-light">
+
+<!-- Full-page center -->
+<div>
+  <app-header-page></app-header-page>
+  <div class="container">
+    <div class="row g-2">
+
+      <div class="col-4" *ngFor="let category of categories">
+        <div  [routerLink]="'/item/'+category.id" style="cursor: pointer"  class="ratio ratio-1x1 bg-white border rounded d-flex justify-content-center align-items-center">
+          {{category.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

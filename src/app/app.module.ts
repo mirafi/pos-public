@@ -12,12 +12,17 @@ import {OrderService} from "./services/orders.service";
 import { HeaderPageComponent } from './header-page/header-page.component';
 import { EurCurrencyConvertorPipe } from './pipes/currency-convertor.pipe';
 import { CartPageComponent } from './cart-page/cart-page.component';
+import { OrdersPageComponent } from './orders-page/orders-page.component';
+import { CartDisplayPageComponent } from './cart-display-page/cart-display-page.component';
+import { OrdersDisplayPageComponent } from './orders-display-page/orders-display-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/start-order', pathMatch: 'full' }, // default
   { path: 'start-order', component: StartOrderPageComponent },
   { path: 'category', component: CategoryPageComponent },
   { path: 'item/:categoryId', component: ItemPageComponent },
+  { path: 'cart', component: CartDisplayPageComponent },
+  { path: 'orders', component: OrdersDisplayPageComponent }
 ];
 
 
@@ -29,7 +34,10 @@ const routes: Routes = [
     StartOrderPageComponent,
     HeaderPageComponent,
     EurCurrencyConvertorPipe,
-    CartPageComponent
+    CartPageComponent,
+    OrdersPageComponent,
+    CartDisplayPageComponent,
+    OrdersDisplayPageComponent
   ],
   imports: [RouterModule.forRoot(routes),
     BrowserModule

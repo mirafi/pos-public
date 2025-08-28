@@ -17,13 +17,13 @@ export class OrderService {
   }
 
   private addCart(){
-    const orderId = this.currentOrder.orderId;
+    const orderId = this.currentOrder.id;
     if (!this.carts.has(orderId)) {
       this.carts.set(orderId, new Cart());
     }
   }
   getCart(): Cart {
-    const orderId = this.currentOrder.orderId;
+    const orderId = this.currentOrder.id;
     const cart = this.carts.get(orderId);
     if (!cart) {
       throw new Error("Order cart not found");
@@ -34,10 +34,19 @@ export class OrderService {
   addOrder() {
     let order: Order = new Order()
     order.displayText = OrderService._ORDER_PREFIX + (this.pendingOrders.length+1);
-    order.orderId = this.md5.appendStr(order.displayText).end().toString();
+    order.id = this.md5.appendStr(order.displayText).end().toString();
     this.pendingOrders.push(order);
     this.currentOrder = order;
     this.addCart()
+  }
+  cancelOrder(order:Order){
+    this.pendingOrders = this.pendingOrders.filter(o=>o.id !== order.id);
+    if(this.currentOrder.id == order.id){
+      this.currentOrder = this.pendingOrders[0] || null;
+    }
+  }
+  orderCount():number{
+    return this.pendingOrders.length;
   }
 
 }

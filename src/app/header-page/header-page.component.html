@@ -1,7 +1,7 @@
 <div class="w-100 d-flex justify-content-center align-items-center">
   <div class="d-flex gap-2">
     <div class="p-2">{{currentOrderDisplayText}}</div>
-    <div class="p-2">Pending Order ({{pendingOrderCount}})</div>
+    <div class="p-2" style="cursor: pointer" [routerLink]="'/orders'" >Pending Order ({{pendingOrderCount}})</div>
     <div class="p-2">Total Quantity {{totalQuantity}}</div>
     <div class="p-2">Total Amount :
       {{totalAmount|currency:"BGN":"symbol"}} |
@@ -21,6 +21,6 @@
 
 
   <div class="d-flex justify-content-end">
-    <button >Go to Cart</button>
+    <button  [routerLink]="'/cart'" >Go to Cart</button>
   </div>
 </div>

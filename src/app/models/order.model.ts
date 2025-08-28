@@ -1,4 +1,4 @@
 export class Order {
-  orderId: string = "";
+  id: string = "";
   displayText:string = "";
 }

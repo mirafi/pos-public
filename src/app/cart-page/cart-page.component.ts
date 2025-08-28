@@ -22,7 +22,9 @@ export class CartPageComponent implements OnInit {
   }
   removeQuantity(item: Product):void {
     this.cart.decreaseQuantity(item)
-
+  }
+  removeItem(item: Product){
+    this.cart.removeItem(item)
   }
 
 }

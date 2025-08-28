@@ -1,0 +1,6 @@
+<ul>
+  <li  *ngFor="let order of orders" class="d-flex justify-content-between" [ngClass]="{'bg-secondary' : order.id==currentOrder.id}" >
+    <span  style="cursor: pointer"  (click)="selectOrder(order)">{{order.displayText}}</span>
+    <span  style="cursor: pointer" (click)="cancelOrder(order)" >[X]</span>
+  </li>
+</ul>

@@ -1,13 +1,16 @@
 <div>
   <ul>
-    <li *ngFor="let cartItem of cart.items" class="d-flex justify-content-between">
+    <li *ngFor="let cartItem of cart.items; let even = even"
+        class="d-flex justify-content-between border"
+
+    >
       <span>{{cartItem.item.name}} X {{cartItem.quantity}}</span>
       <span class="border" style="cursor: pointer" (click)="addQuantity(cartItem.item)">+</span>
       <span class="border" style="cursor: pointer" (click)="removeQuantity(cartItem.item)">-</span>
       <span>{{cartItem.getTotalPrice()|currency:"BGN":"symbol"}} |
       {{cartItem.getTotalPrice()|EurCurrencyConvertor|currency:"EUR":"symbol"}}
       </span>
-      <span class="border" style="cursor: pointer">X</span>
+      <span class="border" style="cursor: pointer" (click)="removeItem(cartItem.item)">X</span>
     </li>
   </ul>
   <ul class="list-unstyled text-end">

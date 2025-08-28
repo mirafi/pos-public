@@ -7,7 +7,7 @@ export class Cart {
 
   items: CartItem[] = []
   private cartSummary:CartSummary = new CartSummary()
-  cartBehaviorSubject:BehaviorSubject<CartSummary>
+  private cartBehaviorSubject:BehaviorSubject<CartSummary>
   constructor() {
    this.cartBehaviorSubject =  new BehaviorSubject<CartSummary>(this.cartSummary);
   }
@@ -26,12 +26,17 @@ export class Cart {
   private updateSummeryAndPublish(){
     this.cartSummary.totalItems = this.items.length
     this.cartSummary.totalAmount = this.totalAmount()
-
+    this.cartSummary.totalQuantity = this.totalQuantity()
     this.cartBehaviorSubject.next(this.cartSummary)
   }
   totalAmount():number{
     return this.items.map(ci =>ci.getTotalPrice())
       .reduce((sum, price) => sum + price, 0);
+  }
+
+  totalQuantity():number{
+    return this.items.map(ci =>ci.quantity)
+      .reduce((sum, quantity) => sum + quantity, 0);
   }
 
   changeSubscription(callback: (n: CartSummary) => void):Subscription {
@@ -42,8 +47,17 @@ export class Cart {
     this.updateSummeryAndPublish()
   }
   decreaseQuantity(product: Product):void {
-    if(this.items.find(ci => ci.item.id == product.id)?.quantity==0)return
-    this.items.find(ci => ci.item.id == product.id)?.decreaseQuantity()
+    const item =  this.items.find(ci => ci.item.id == product.id)
+    if(item == undefined)return
+    if(item.quantity<=1){
+      this.removeItem(product)
+      this.updateSummeryAndPublish()
+      return
+    }
+    item?.decreaseQuantity()
+  }
+  removeItem(product: Product):void {
+    this.items =  this.items.filter(ci => ci.item.id != product.id);
     this.updateSummeryAndPublish()
   }
 }

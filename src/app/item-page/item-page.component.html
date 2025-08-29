@@ -1,40 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Item</title>
-</head>
-<body class="bg-light">
 
 <!-- Full-page center -->
 <div>
   <app-header-page [backPageInfo]="backPageInfo"></app-header-page>
   <div class="container">
     <div class="row">
-      <div class="col-8">
+      <div class="col-9 " style="cursor: pointer" >
         <div class="row g-2">
-
-      <div class="col-4" style="cursor: pointer" (click)="addToCart(item)" *ngFor="let item of items">
-        <div class="ratio ratio-1x1 bg-white border rounded d-flex justify-content-center align-items-center">
-          <div>
-            <div  class="lead">
-              {{item.name}}
+            <div class="col-2  ratio-1x1 bg-white border rounded hover-shadow me-1" (click)="addToCart(item)" *ngFor="let item of items">
+              <div>
+                {{ item.name }}
+              </div>
+              <div>{{ item.price|currency:"BGN":"symbol" }}</div>
+              <div>{{ item.price|EurCurrencyConvertor|currency:"EUR":"symbol" }}</div>
             </div>
-            <div>{{item.price|currency:"BGN":"symbol"}}</div>
-            <div>{{item.price|EurCurrencyConvertor|currency:"EUR":"symbol"}}</div>
-          </div>
-
         </div>
       </div>
-    </div>
-      </div>
-      <div  class="col-4">
+      <div class="col-3">
         <app-cart-page></app-cart-page>
       </div>
     </div>
-
   </div>
+
 </div>
-</body>
-</html>

@@ -20,6 +20,12 @@ export class MockData{
     MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(7,"200004","Chicken Shawarma",3))
     MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(8,"200005","Chicken soup",2))
     MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(9,"200006","Beef soup",2))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(10,"200007","Vegetable soup",3))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(11,"200008","Tripe soup",2.5))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(12,"200009","Cream mushroom soup",2.5))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(13,"200010","Tom yam soup",3))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(14,"200011","Tomato soup",1))
+    MockData.dataItem.get(MockData.dataCategory[1].id)?.push(new Product(15,"200012","Broccoli soup",1))
 
 
 

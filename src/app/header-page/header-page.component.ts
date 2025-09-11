@@ -1,9 +1,9 @@
 import {Component, Input, IterableDiffer, IterableDiffers, OnInit} from '@angular/core';
 import {OrderService} from "../services/orders.service";
 import {Router} from '@angular/router';
-import {BackPageInfo} from "../models/back-page-info";
-import {BehaviorSubject, Subscription} from 'rxjs';
-
+import {HeaderButtonDisplayOptions} from "../models/header-button-display-options";
+import { Location } from '@angular/common';
+import {Subscription} from "rxjs";
 @Component({
   selector: 'app-header-page',
   templateUrl: './header-page.component.html',
@@ -19,10 +19,11 @@ export class HeaderPageComponent implements OnInit {
   private differ : IterableDiffer<any>|undefined
   private cartChangeSubscription : Subscription = Subscription.EMPTY
 
-  @Input("backPageInfo")
-  backPageInfo: BackPageInfo | undefined;
+  @Input("displayOption")
+  displayOption: HeaderButtonDisplayOptions = new HeaderButtonDisplayOptions();
 
-  constructor(private orderService: OrderService, private router: Router, private differs: IterableDiffers) {
+  constructor(private orderService: OrderService, private router: Router, private differs: IterableDiffers,
+              private location: Location) {
     if (this.orderService.pendingOrders.length == 0) {
       this.router.navigate(['/start-order']).then(r => true);
     }
@@ -51,6 +52,9 @@ export class HeaderPageComponent implements OnInit {
   }
   ngOnDestroy(): void {
     this.cartChangeSubscription.unsubscribe();
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 }

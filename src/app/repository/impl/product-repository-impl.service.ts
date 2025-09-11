@@ -1,11 +1,10 @@
-import {Product} from '../models/product.mode';
-import {MockData} from './mock.repository';
+import {Product} from '../../models/product.mode';
+import {MockData} from '../mock.repository';
 import {Injectable} from '@angular/core';
+import {ItemRepository} from "../item-repository.service";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ProductRepository {
+@Injectable()
+export class ItemRepositoryImpl implements ItemRepository {
     getAllItem():Product[]{
       const products:Product[] = [];
       MockData.dataItem.forEach(
@@ -18,4 +17,3 @@ export class ProductRepository {
     }
 
 }
-

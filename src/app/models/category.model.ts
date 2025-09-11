@@ -1,9 +1,8 @@
 export class Category {
-  id: number;
-  name: string;
 
-  constructor(id: number, name: string) {
+  constructor(public id: number,public  name: string,public imagePath: string) {
     this.id = id;
     this.name = name;
+    this.imagePath = imagePath;
   }
 }

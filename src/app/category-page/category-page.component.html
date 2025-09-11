@@ -1,25 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Category</title>
-</head>
-<body class="bg-light">
-
-<!-- Full-page center -->
 <div>
-  <app-header-page></app-header-page>
-  <div class="container text-center">
+  <app-header-page [displayOption]="displayOption"></app-header-page>
+  <div class="container">
     <div class="row">
-      <div class="col" *ngFor="let category of categories">
-        <div  [routerLink]="'/item/'+category.id" style="cursor: pointer"  class="ratio ratio-1x1 bg-white border rounded d-flex justify-content-center align-items-center">
-          {{category.name}}
+      <div class="col ratio ratio-21x9 me-1"
+           [routerLink]="'/item/'+category.id" style="cursor: pointer" *ngFor="let category of categories">
+        <div class="rounded text-center d-flex justify-content-center align-items-center grey-bg-2">
+          <h2>{{ category.name }}</h2>
         </div>
       </div>
     </div>
   </div>
-
 </div>
-</body>
-</html>

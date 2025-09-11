@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HeaderButtonDisplayOptions} from "../models/header-button-display-options";
 
 @Component({
   selector: 'app-cart-display-page',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-display-page.component.css']
 })
 export class CartDisplayPageComponent implements OnInit {
+  headerButtonDisplayOptions:HeaderButtonDisplayOptions;
 
-  constructor() { }
+  constructor() {
+    this.headerButtonDisplayOptions = new HeaderButtonDisplayOptions(true,false,false);
+  }
 
   ngOnInit(): void {
   }
+
 
 }

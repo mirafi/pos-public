@@ -1,0 +1,16 @@
+.hover-shadow {
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.hover-shadow:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Click / Active effect */
+.hover-shadow:active {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(0.97);
+}

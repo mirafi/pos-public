@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductRepository} from "../repository/product-repository.service";
+import {Component, Inject, OnInit} from '@angular/core';
+import {ItemRepository} from "../repository/item-repository.service";
 import {Product} from "../models/product.mode";
 import {ActivatedRoute} from '@angular/router';
-import {BackPageInfo} from "../models/back-page-info";
 import {Cart} from "../models/cart.model";
 import {OrderService} from "../services/orders.service";
+import {Category} from "../models/category.model";
+import {CategoryRepository} from "../repository/category-repository.service";
 
 @Component({
   selector: 'app-item-page',
@@ -14,9 +15,9 @@ import {OrderService} from "../services/orders.service";
 export class ItemPageComponent implements OnInit {
 
   items:Product[]=[];
-  backPageInfo:BackPageInfo = new BackPageInfo("/category","Category")
+  category:Category|undefined|null;
   cart:Cart;
-  constructor(private route: ActivatedRoute,private itemRepository: ProductRepository, private orderService:OrderService) {
+  constructor(private route: ActivatedRoute,@Inject("ItemRepository") private itemRepository: ItemRepository,@Inject("CategoryRepository") private categoryRepository:CategoryRepository, private orderService:OrderService) {
     this.cart = this.orderService.getCart();
 
   }
@@ -28,14 +29,16 @@ export class ItemPageComponent implements OnInit {
   ngOnInit(): void {
     // Get the route parameter (snapshot version)
     const categoryId = this.route.snapshot.paramMap.get('categoryId');
+    this.category = (categoryId!=null)?this.categoryRepository.getById(parseInt(categoryId,0)):null;
     console.log("categoryId",categoryId, this.route.snapshot.paramMap);
     if (categoryId != null){
       this.items = this.itemRepository.getItemByCategory(parseInt(categoryId))??[];
       console.log(" this.items", this.items);
-    }
-
-    else
+    }else
       this.items = this.itemRepository.getAllItem();
+
+
+
     }
 
 }

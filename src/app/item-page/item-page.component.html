@@ -1,24 +1,27 @@
-
 <!-- Full-page center -->
 <div>
-  <app-header-page [backPageInfo]="backPageInfo"></app-header-page>
-  <div class="container">
-    <div class="row">
-      <div class="col-9 " style="cursor: pointer" >
-        <div class="row g-2">
-            <div class="col-2  ratio-1x1 bg-white border rounded hover-shadow me-1" (click)="addToCart(item)" *ngFor="let item of items">
+  <app-header-page></app-header-page>
+    <div class="container">
+      <div class="row" >
+        <div class="col-7 overflow-auto" style="max-height: 65vh">
+          <div class="row g-2">
+            <div class="col-3 bg-white border rounded hover-shadow me-1" style="cursor: pointer"
+                 (click)="addToCart(item)" *ngFor="let item of items">
+              <span class="badge bg-secondary">99+</span>
               <div>
-                {{ item.name }}
+                <img class="img-fluid" src="{{this.category?.imagePath}}" alt="Item">
+              </div>
+              <div>
+                <h4>{{ item.name }}</h4>
               </div>
               <div>{{ item.price|currency:"BGN":"symbol" }}</div>
               <div>{{ item.price|EurCurrencyConvertor|currency:"EUR":"symbol" }}</div>
             </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <app-cart-page></app-cart-page>
         </div>
       </div>
-      <div class="col-3">
-        <app-cart-page></app-cart-page>
-      </div>
     </div>
-  </div>
-
 </div>

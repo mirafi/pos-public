@@ -1,28 +1,35 @@
-<div class="w-100 d-flex justify-content-center align-items-center">
+<div class="w-100 d-flex justify-content-center align-items-center grey-bg-6">
   <div class="d-flex gap-2">
-    <div class="p-2">{{ currentOrderDisplayText }}</div>
-    <div class="p-2" style="cursor: pointer" [routerLink]="'/orders'">Pending Order ({{ pendingOrderCount }})</div>
-    <div class="p-2">Total Quantity {{ totalQuantity }}</div>
-    <div class="p-2">Total Amount :
-      {{ totalAmount|currency:"BGN":"symbol" }} |
-      {{ totalAmount|EurCurrencyConvertor|currency:"EUR":"symbol" }}
+    <button class="grey-bg-5 " style="cursor: pointer" [routerLink]="'/orders'">Pending Order
+      <span class="badge grey-bg-7 text-dark">{{ pendingOrderCount }}</span>
+    </button>
+    <div class="d-flex">
+      <div class="p-2 ">{{ currentOrderDisplayText }}</div>
+      <div class="p-2">Total Quantity {{ totalQuantity }}</div>
+      <div class="p-2">Total Amount :
+        {{ totalAmount|currency:"BGN":"symbol" }} |
+        {{ totalAmount|EurCurrencyConvertor|currency:"EUR":"symbol" }}
+      </div>
     </div>
+
   </div>
 </div>
-<div class="container-fluid  align-items-center">
-  <div class="row mb-3">
-    <div class="col d-flex justify-content-start">
-      <button [routerLink]="'/start-order'">New Order</button>
-    </div>
-    <div class="col d-flex justify-content-end">
-      <button [routerLink]="'/cart'">Go to Cart</button>
+<div class="container-fluid align-items-center mt-4">
+  <div class="row mb-lg-5">
+    <div class="d-flex justify-content-center gap-3 w-100">
+
+      <div *ngIf="displayOption!=null">
+        <button class="grey-bg-4" (click)="goBack()">Go Back</button>
+      </div>
+
+      <div *ngIf="displayOption?.newOderButton">
+        <button class="grey-bg-4" [routerLink]="'/start-order'">New Order</button>
+      </div>
+
+      <div *ngIf="displayOption?.cartButton">
+        <button class="grey-bg-4" [routerLink]="'/cart'">Go to Cart</button>
+      </div>
+
     </div>
   </div>
-  <div *ngIf="backPageInfo!=null" class="row justify-content-start">
-    <div class="col d-flex justify-content-start">
-      <button [routerLink]="backPageInfo.url">Back to {{ backPageInfo.displayName }}</button>
-    </div>
-  </div>
-
-
 </div>

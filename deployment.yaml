@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pos-front-end
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pos-front-end
+  template:
+    metadata:
+      labels:
+        app: pos-front-end
+    spec:
+      containers:
+        - name: pos-front-end
+          image: mirafi/pos-front-end-image:v_0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pos-front-end-service
+spec:
+  selector:
+    app: pos-front-end
+  ports:
+    - port: 4201        # ClusterIP port (mandatory)
+      targetPort: 80    # Container port
+  type: NodePort

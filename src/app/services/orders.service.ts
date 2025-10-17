@@ -10,7 +10,7 @@ export class OrderService {
   private md5 = new Md5();
   static _ORDER_PREFIX = 'Order ';
   private carts:  Map<String, Cart> = new  Map<String, Cart>();
-
+  private static ORDER_COUNT:number = 0;
   constructor() {
     this.pendingOrders = [];
     this.currentOrder = new Order();
@@ -33,7 +33,7 @@ export class OrderService {
 
   addOrder() {
     let order: Order = new Order()
-    order.displayText = OrderService._ORDER_PREFIX + (this.pendingOrders.length+1);
+    order.displayText = OrderService._ORDER_PREFIX + (++OrderService.ORDER_COUNT);
     order.id = this.md5.appendStr(order.displayText).end().toString();
     this.pendingOrders.push(order);
     this.currentOrder = order;
@@ -48,5 +48,9 @@ export class OrderService {
   orderCount():number{
     return this.pendingOrders.length;
   }
-
+  confirmOrder(){
+    this.carts.delete(this.currentOrder.id);
+    this.pendingOrders = this.pendingOrders.filter(o=>o.id !== this.currentOrder.id);
+    this.currentOrder = new Order();
+  }
 }

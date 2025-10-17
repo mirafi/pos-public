@@ -29,4 +29,7 @@
       {{ cart.totalAmount()|EurCurrencyConvertor|currency:"EUR":"symbol" }}
     </div>
   </div>
+  <div class="row" *ngIf="cart.totalQuantity()>0">
+    <button (click)="confirmAndPrint()" >Confirm And Print</button>
+  </div>
 </div>

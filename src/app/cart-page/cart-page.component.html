@@ -1,35 +1,43 @@
-<div class="container grey-bg-5 p-3">
-  <div class="row overflow-auto" style="max-height: 55vh">
-    <div class="row border  p-1 grey-bg-4" *ngFor="let cartItem of cart.items; let even = even" >
+<div class="container grey-bg-6">
 
-      <div class="col-6 grey-bg-3">{{ cartItem.item.name }} X <b>{{ cartItem.quantity }}</b></div>
-      <div class="col-2 grey-bg-3" style="cursor: pointer" >
-        <div class="row">
-          <div class="col border-start border-end border-bottom text-start" style="cursor: pointer" (click)="addQuantity(cartItem.item)">+</div>
-          <div class="col border-start border-end border-bottom text-end" style="cursor: pointer" (click)="removeQuantity(cartItem.item)">-</div>
+  <div class="overflow-y-auto" style="max-height: 55vh; overflow-x: hidden;">
+    <div class="row justify-content-center" *ngFor="let cartItem of cart.items; let even = even">
+      <div class="col-10 grey-bg-4 d-flex align-items-center p-2">
+
+
+        <div class="col-5 grey-bg-3">
+          {{ cartItem.item.name }} X <b>{{ cartItem.quantity }}</b>
         </div>
-      </div>
-      <div class="col-3 grey-bg-3">
-        {{ cartItem.getTotalPrice()|currency:"BGN":"symbol" }} |
-        {{ cartItem.getTotalPrice()|EurCurrencyConvertor|currency:"EUR":"symbol" }}
-      </div>
-      <div class="col-1 grey-bg-3 text-end border-start" style="cursor: pointer" (click)="removeItem(cartItem.item)">X</div>
-    </div>
 
-  </div>
-  <div class="row text-end grey-bg-4">
 
-  </div>
-  <div class="row text-end grey-bg-4">
-    <div class="col">Total quantity :
-      {{ cart.totalQuantity() }}
+        <div class="col-2 grey-bg-3 d-flex justify-content-between px-1">
+          <div class="text-center flex-fill grey-bg-2" style="cursor:pointer" (click)="addQuantity(cartItem.item)">+</div>
+          <div class="text-center flex-fill grey-bg-2" style="cursor:pointer" (click)="removeQuantity(cartItem.item)">-</div>
+        </div>
+
+        <div class="col-4 grey-bg-3">
+          {{ cartItem.getTotalPrice() | currency:"BGN":"symbol" }} |
+          {{ cartItem.getTotalPrice() | EurCurrencyConvertor | currency:"EUR":"symbol" }}
+        </div>
+
+
+        <div class="col-1 grey-bg-3 text-center" style="cursor:pointer" (click)="removeItem(cartItem.item)">X</div>
+
+      </div>
     </div>
-    <div class="col">Total :
-      {{ cart.totalAmount()|currency:"BGN":"symbol" }} |
-      {{ cart.totalAmount()|EurCurrencyConvertor|currency:"EUR":"symbol" }}
+  </div>
+
+  <div class="row grey-bg-4">
+    <div class="col">Total quantity: {{ cart.totalQuantity() }}</div>
+    <div class="col">Total: {{ cart.totalAmount() | currency:"BGN":"symbol" }} |
+      {{ cart.totalAmount() | EurCurrencyConvertor | currency:"EUR":"symbol" }}
     </div>
   </div>
-  <div class="row" *ngIf="cart.totalQuantity()>0">
-    <button (click)="confirmAndPrint()" >Confirm And Print</button>
+
+  <div class="row grey-bg-4 " *ngIf="cart.totalQuantity() > 0">
+    <div class="col text-center">
+      <button (click)="confirmAndPrint()">Confirm And Print</button>
+    </div>
   </div>
+
 </div>

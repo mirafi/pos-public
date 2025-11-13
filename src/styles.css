@@ -1,28 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 .grey-bg-1{
-  background: #eeeeee;
+  background-color: #ffffff;
+  border: 1px solid #222222 !important;
+  margin: 1px !important;
 }
 
 .grey-bg-2{
-  background: #dddddd;
+  background-color: #f7f7f7;
+  border: 1px solid #1f1f1f !important;
+  margin: 1px !important;
 }
 
 .grey-bg-3{
-  background: #cccccc;
+  background-color: #efefef;
+  border: 1px solid #1b1b1b !important;
+  margin: 1px !important;
 }
 
 .grey-bg-4{
-  background: #bbbbbb;
+  background-color: #e7e7e7;
+  border: 1px solid #181818 !important;
+  margin: 1px !important;
 }
 
 .grey-bg-5{
-  background: #a3a3a3;
+  background-color: #dfdfdf;
+  border: 1px solid #141414 !important;
+  margin: 1px !important;
 }
 
 .grey-bg-6{
-  background: #767676;
+  background-color: #d7d7d7;
+  border: 1px solid #101010 !important;
+  margin: 1px !important;
 }
 
 .grey-bg-7{
-  background: #424242;
+  background-color: #cfcfcf;
+  border: 1px solid #0c0c0c !important;
+  margin: 1px !important;
 }

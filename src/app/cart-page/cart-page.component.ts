@@ -33,6 +33,7 @@ export class CartPageComponent implements OnInit {
   confirmAndPrint(){
     this.printInvoice()
     this.confirmOrder()
+    alert("Order Confirmed! Redirecting to start order page")
     this.router.navigate(['/start-order']).then(r => r);
   }
   printInvoice(){

@@ -8,7 +8,7 @@ export class OrderService {
   pendingOrders: Order[] = [];
   currentOrder: Order = new Order();
   private md5 = new Md5();
-  static _ORDER_PREFIX = 'Order ';
+  static _ORDER_PREFIX = 'ORD_';
   private carts:  Map<String, Cart> = new  Map<String, Cart>();
   private static ORDER_COUNT:number = 0;
   constructor() {

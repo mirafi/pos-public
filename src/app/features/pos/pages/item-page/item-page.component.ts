@@ -36,9 +36,9 @@ export class ItemPageComponent implements OnInit {
       console.log(" this.items", this.items);
     }else
       this.items = this.itemRepository.getAllItem();
-
-
-
-    }
+  }
+  itemTrackBy(index: number, item: Product):number{
+    return item.id;
+  }
 
 }

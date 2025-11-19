@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col ratio ratio-21x9 me-1"
            [routerLink]="'/item/'+category.id" style="cursor: pointer" *ngFor="let category of categories">
-        <div class="rounded text-center d-flex justify-content-center align-items-center grey-bg-2">
+        <div data-cy="category" class="rounded text-center d-flex justify-content-center align-items-center grey-bg-2">
           <h2>{{ category.name }}</h2>
         </div>
       </div>

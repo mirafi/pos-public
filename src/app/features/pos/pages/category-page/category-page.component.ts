@@ -1,8 +1,8 @@
 import {Component, Inject} from '@angular/core';
-import {CategoryRepository} from "../repository/category-repository.service";
-import {Category} from "../models/category.model";
-import {OrderService} from "../services/orders.service";
-import {HeaderButtonDisplayOptions} from "../models/header-button-display-options";
+import {CategoryRepository} from "../../../../core/repository/category-repository.service";
+import {Category} from "../../../../core/models/category.model";
+import {OrderService} from "../../../../core/services/orders.service";
+import {HeaderButtonDisplayOptions} from "../../../../core/models/header-button-display-options";
 
 @Component({
   selector: 'app-category-page',

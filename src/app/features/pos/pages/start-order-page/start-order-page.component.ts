@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {OrderService} from "../services/orders.service";
+import {OrderService} from "../../../../core/services/orders.service";
 import { Router } from '@angular/router';
-import {HeaderButtonDisplayOptions} from "../models/header-button-display-options";
+import {HeaderButtonDisplayOptions} from "../../../../core/models/header-button-display-options";
 
 @Component({
   selector: 'app-start-order-page',

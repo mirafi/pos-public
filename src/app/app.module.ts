@@ -3,18 +3,18 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
-import {CategoryPageComponent} from './category-page/category-page.component';
-import {ItemPageComponent} from './item-page/item-page.component';
-import {StartOrderPageComponent} from './start-order-page/start-order-page.component';
-import {HeaderPageComponent} from './header-page/header-page.component';
+import {CategoryPageComponent} from './features/pos/pages/category-page/category-page.component';
+import {ItemPageComponent} from './features/pos/pages/item-page/item-page.component';
+import {StartOrderPageComponent} from './features/pos/pages/start-order-page/start-order-page.component';
+import {HeaderPageComponent} from './features/pos/components/header-page/header-page.component';
 import {EurCurrencyConvertorPipe} from './pipes/currency-convertor.pipe';
-import {CartPageComponent} from './cart-page/cart-page.component';
-import {OrdersPageComponent} from './orders-page/orders-page.component';
-import {CartDisplayPageComponent} from './cart-display-page/cart-display-page.component';
-import {OrdersDisplayPageComponent} from './orders-display-page/orders-display-page.component';
-import {ItemRepositoryImpl} from "./repository/impl/product-repository-impl.service";
-import {CategoryRepositoryImpl} from "./repository/impl/category-repository-impl.service";
-import {OrderService} from "./services/orders.service";
+import {CartComponent} from './features/pos/components/cart/cart.component';
+import {OrdersComponent} from './features/pos/components/orders/orders.component';
+import {CartPageComponent} from './features/pos/pages/cart-page/cart-page.component';
+import {OrdersDisplayPageComponent} from './features/pos/pages/orders-display-page/orders-display-page.component';
+import {ItemRepositoryImpl} from "./core/repository/impl/product-repository-impl.service";
+import {CategoryRepositoryImpl} from "./core/repository/impl/category-repository-impl.service";
+import {OrderService} from "./core/services/orders.service";
 import {SERVICE} from "../environments/service";
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'start-order', component: StartOrderPageComponent },
   { path: 'category', component: CategoryPageComponent },
   { path: 'item/:categoryId', component: ItemPageComponent },
-  { path: 'cart', component: CartDisplayPageComponent },
+  { path: 'cart', component: CartPageComponent },
   { path: 'orders', component: OrdersDisplayPageComponent }
 ];
 
@@ -35,9 +35,9 @@ const routes: Routes = [
     StartOrderPageComponent,
     HeaderPageComponent,
     EurCurrencyConvertorPipe,
+    CartComponent,
+    OrdersComponent,
     CartPageComponent,
-    OrdersPageComponent,
-    CartDisplayPageComponent,
     OrdersDisplayPageComponent
   ],
   imports: [RouterModule.forRoot(routes),

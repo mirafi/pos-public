@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../models/order.model";
-import {OrderService} from "../services/orders.service";
+import {Order} from "../../../../core/models/order.model";
+import {OrderService} from "../../../../core/services/orders.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-pending-order-page',
-  templateUrl: './orders-page.component.html',
-  styleUrls: ['./orders-page.component.css']
+  selector: 'app-order-page',
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.css']
 })
-export class OrdersPageComponent implements OnInit {
+export class OrdersComponent implements OnInit {
 
   orders: Order[]
   currentOrder:Order

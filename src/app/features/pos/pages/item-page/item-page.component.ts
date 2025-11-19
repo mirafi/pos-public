@@ -1,11 +1,11 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {ItemRepository} from "../repository/item-repository.service";
-import {Product} from "../models/product.mode";
+import {ItemRepository} from "../../../../core/repository/item-repository.service";
+import {Product} from "../../../../core/models/product.mode";
 import {ActivatedRoute} from '@angular/router';
-import {Cart} from "../models/cart.model";
-import {OrderService} from "../services/orders.service";
-import {Category} from "../models/category.model";
-import {CategoryRepository} from "../repository/category-repository.service";
+import {Cart} from "../../../../core/models/cart.model";
+import {OrderService} from "../../../../core/services/orders.service";
+import {Category} from "../../../../core/models/category.model";
+import {CategoryRepository} from "../../../../core/repository/category-repository.service";
 
 @Component({
   selector: 'app-item-page',
